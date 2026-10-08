@@ -83,10 +83,11 @@ ul{padding-left:1.2em}
 .hero{padding:clamp(2.5rem,6vw,5rem) 0;background:linear-gradient(180deg,var(--crema),#fff)}
 .hero__rejilla{display:grid;gap:2.5rem;align-items:center}
 .hero__imagen img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radio)}
+.hero--inicio .hero__imagen img{aspect-ratio:16/9}
 @media (min-width:860px){
   .hero__rejilla{grid-template-columns:1.1fr 1fr;gap:3.5rem}
   .hero__imagen img{aspect-ratio:4/5}
-  .hero--inicio .hero__imagen img{aspect-ratio:1/1}
+  .hero--inicio .hero__imagen img{aspect-ratio:16/9}
 }
 .migas{font-size:.85rem;color:var(--gris);margin-bottom:1rem}
 .migas a{color:inherit}

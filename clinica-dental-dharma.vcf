@@ -1,0 +1,18 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Clinica Dental Dharma
+N:Dharma;Clinica Dental;;;
+EMAIL;TYPE=INTERNET;TYPE=HOME:clinicadentaldharma@gmail.com
+TEL;TYPE=CELL:617 87 86 81
+TEL;TYPE=WORK:822 70 90 25
+ADR;TYPE=WORK:;;C. Corales\, 15;Santa Cruz de Tenerife;Santa Cruz de Teneri
+ fe;38005;ES;C. Corales\, 15\n38005 Santa Cruz de Tenerife\nSanta Cruz de T
+ enerife\nES
+ORG:Dharma Odontología holística
+item1.URL:https\://clinicadentaldharma.com
+item1.X-ABLabel:_$!<HomePage>!$_
+URL;TYPE=WORK:https\://calendly.com/clinicadentaldharma/consulta
+item2.URL:https\://wa.me/34617878681
+item2.X-ABLabel:PROFILE
+CATEGORIES:myContacts
+END:VCARD

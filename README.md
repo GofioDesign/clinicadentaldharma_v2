@@ -13,10 +13,11 @@ Nueva versión de [clinicadentaldharma.com](https://clinicadentaldharma.com): HT
 - Lighthouse en local: 99–100 en rendimiento y 100 en accesibilidad, buenas prácticas y SEO.
 
 **Más orientada a pedir cita**
-- Botón «Pedir cita» siempre visible en la cabecera, y teléfono en escritorio.
+- Botón «Pedir cita» siempre visible en la cabecera, y teléfono en escritorio. Ahora lleva a WhatsApp; se cambia en un solo archivo (ver más abajo).
 - En móvil, barra fija abajo con *Llamar*, *WhatsApp* y *Pedir cita*.
 - Cada tratamiento abre con su botón de reserva, tiene un recuadro lateral de cita, un bloque final «Da el primer paso» y enlaces a otros tratamientos.
-- El WhatsApp abre con un mensaje ya escrito que dice el tratamiento («Hola, me gustaría pedir cita… para dentosofía»).
+- El botón verde de WhatsApp abre con un mensaje ya escrito que dice el tratamiento («Hola, me gustaría pedir cita… para dentosofía»).
+- Política de privacidad enlazada en el pie de todas las páginas.
 - Portada con razones para confiar (25 años, sin tóxicos, sin metal, equipo completo), pasos de la primera visita y preguntas frecuentes.
 - Datos estructurados de Google (clínica dental, horario, dirección, preguntas frecuentes) para que salgan en el buscador y en Maps.
 
@@ -29,6 +30,8 @@ index.html                    portada
 tratamientos/index.html       listado de tratamientos (tarjetas)
 dentosofia/index.html …       una carpeta por tratamiento
 _plantilla-articulo/          plantilla para páginas nuevas (no se indexa)
+cita/index.html               a dónde lleva «Pedir cita» (redirección)
+politica-de-privacidad/       política de privacidad (falta añadir el NIF)
 css/estilos.css               todos los estilos
 img/                          imágenes, logos e iconos
 fonts/                        Crimson Text y Poppins (licencia OFL)
@@ -55,8 +58,6 @@ Busca `EDITAR` en el archivo: cada comentario dice qué cambiar.
 - El texto, dentro de `<article class="texto">`. Puedes usar `<p>`, `<h2>`, `<h3>`, listas `<ul><li>`, `<strong>`, enlaces e imágenes.
 
 **Imágenes**: guárdalas en `img/`, de unos 960 px de ancho, en WebP o JPG (en [squoosh.app](https://squoosh.app) se convierten a WebP). En cada `<img>` cambia `src` (empezando por `../img/`), `width` y `height` (el tamaño real en píxeles) y `alt` (qué se ve en la foto).
-
-**WhatsApp con mensaje**: si quieres que el botón de WhatsApp lleve el mensaje escrito, cambia `https://wa.me/34617878681` por `https://wa.me/34617878681?text=Hola%2C%20quiero%20pedir%20cita` (los espacios se escriben `%20` y las comas `%2C`).
 
 ### 3. Añade su tarjeta en «Tratamientos»
 
@@ -90,7 +91,19 @@ git commit -m "Nueva página: Bruxismo y estrés"
 git push
 ```
 
-## Cambiar el horario, el teléfono o el enlace de cita
+## Cambiar a dónde lleva «Pedir cita»
+
+Todos los botones «Pedir cita» de la web llevan a `cita/index.html`, que redirige al momento a otra dirección. Ahora mismo es un WhatsApp con el mensaje «Hola, me gustaría pedir cita en Clínica Dental Dharma.».
+
+Para cambiarlo, abre `cita/index.html` y sustituye la dirección en los **dos** sitios marcados con `EDITAR` (la línea `<meta http-equiv="refresh" …>`, después de `url=`, y el enlace del texto). Por ejemplo, para volver a Calendly:
+
+```
+https://calendly.com/clinicadentaldharma/consulta
+```
+
+No hay que tocar ninguna otra página.
+
+## Cambiar el horario o el teléfono
 
 Estos datos están repetidos en todas las páginas. En VS Code, usa *Buscar en archivos* (Ctrl+Mayús+H) y *Reemplazar todo*:
 
@@ -100,7 +113,6 @@ Estos datos están repetidos en todas las páginas. En VS Code, usa *Buscar en a
 | Horario del viernes | `9:00 – 13:00` | tabla de horario y pie |
 | Teléfono fijo | `822 70 90 25` y `+34822709025` | texto y enlaces `tel:` |
 | Móvil / WhatsApp | `617 87 86 81`, `+34617878681` y `34617878681` | texto, `tel:` y `wa.me` |
-| Reserva online | `https://calendly.com/clinicadentaldharma/consulta` | todos los botones de cita |
 
 El horario también está en los datos para Google del `index.html` de la raíz (`"opens": "09:00", "closes": "19:00"`): cámbialo allí a mano.
 

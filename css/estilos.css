@@ -189,3 +189,5 @@ ul{padding-left:1.2em}
 }
 
 .oculto{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.llamada .boton--borde{color:#fff;border-color:#fff}
+.llamada .boton--borde:hover{background:#fff;color:var(--tinta)}

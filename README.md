@@ -13,7 +13,7 @@ Nueva versión de [clinicadentaldharma.com](https://clinicadentaldharma.com): HT
 - Lighthouse en local: 99–100 en rendimiento y 100 en accesibilidad, buenas prácticas y SEO.
 
 **Más orientada a pedir cita**
-- Botón «Pedir cita» siempre visible en la cabecera, y teléfono en escritorio. Ahora lleva a WhatsApp; se cambia en un solo archivo (ver más abajo).
+- Botón «Pedir cita» siempre visible en la cabecera, y teléfono en escritorio. Ahora lleva a WhatsApp; se cambia en una sola línea (ver más abajo).
 - En móvil, barra fija abajo con *Llamar*, *WhatsApp* y *Pedir cita*.
 - Cada tratamiento abre con su botón de reserva, tiene un recuadro lateral de cita, un bloque final «Da el primer paso» y enlaces a otros tratamientos.
 - El botón verde de WhatsApp abre con un mensaje ya escrito que dice el tratamiento («Hola, me gustaría pedir cita… para dentosofía»).
@@ -30,7 +30,7 @@ index.html                    portada
 tratamientos/index.html       listado de tratamientos (tarjetas)
 dentosofia/index.html …       una carpeta por tratamiento
 _plantilla-articulo/          plantilla para páginas nuevas (no se indexa)
-cita/index.html               a dónde lleva «Pedir cita» (redirección)
+js/cita.js                    a dónde llevan los botones de cita (una sola línea)
 politica-de-privacidad/       política de privacidad (falta añadir el NIF)
 css/estilos.css               todos los estilos
 img/                          imágenes, logos e iconos
@@ -91,17 +91,19 @@ git commit -m "Nueva página: Bruxismo y estrés"
 git push
 ```
 
-## Cambiar a dónde lleva «Pedir cita»
+## Cambiar a dónde llevan los botones de cita
 
-Todos los botones «Pedir cita» de la web llevan a `cita/index.html`, que redirige al momento a otra dirección. Ahora mismo es un WhatsApp con el mensaje «Hola, me gustaría pedir cita en Clínica Dental Dharma.».
+Todos los botones «Reservar cita» y «Pedir cita» de la web toman su dirección de `js/cita.js`. Ahora mismo llevan a WhatsApp con el mensaje «Hola, quiero pedir una cita.».
 
-Para cambiarlo, abre `cita/index.html` y sustituye la dirección en los **dos** sitios marcados con `EDITAR` (la línea `<meta http-equiv="refresh" …>`, después de `url=`, y el enlace del texto). Por ejemplo, para volver a Calendly:
+Para cambiarlo en toda la web, abre `js/cita.js` y cambia solo la línea `var CITA_URL = '…';`. Por ejemplo, cuando Calendly vuelva a funcionar:
 
+```js
+var CITA_URL = 'https://calendly.com/clinicadentaldharma/consulta';
 ```
-https://calendly.com/clinicadentaldharma/consulta
-```
 
-No hay que tocar ninguna otra página.
+No hay que tocar ninguna página. (En el HTML los botones llevan el WhatsApp como dirección de reserva, por si el navegador no carga el JS.)
+
+En una página nueva, para que un botón use esta dirección, añádele `data-cita`: `<a class="boton boton--cita" href="…" data-cita>`. La plantilla ya lo trae.
 
 ## Cambiar el horario o el teléfono
 

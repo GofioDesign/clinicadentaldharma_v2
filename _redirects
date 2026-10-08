@@ -1,0 +1,22 @@
+# Redirecciones para Cloudflare Pages (se ignoran en GitHub Pages).
+# Formato: dirección antigua · dirección nueva · código.
+#
+# Las páginas de la web de WordPress (/, /tratamientos/, /dentosofia/, etc.)
+# conservan su dirección en la web nueva, así que no necesitan redirección.
+# Cloudflare Pages ya redirige por sí solo /carpeta → /carpeta/ y
+# /carpeta/index.html → /carpeta/. El paso de http a https y de www a sin www
+# se configura en el panel de Cloudflare, no aquí.
+#
+# Lo que había en WordPress y no existe en la web nueva (entrada de ejemplo,
+# autor, categoría, feeds, wp-admin, imágenes de wp-content) devuelve 404.
+
+# Raíz y mapas del sitio de WordPress / Yoast
+/index.php            /             301
+/sitemap_index.xml    /sitemap.xml  301
+/page-sitemap.xml     /sitemap.xml  301
+/post-sitemap.xml     /sitemap.xml  301
+/wp-sitemap.xml       /sitemap.xml  301
+
+# Tarjeta de contacto (vCard) que se compartía desde WordPress
+/wp-content/uploads/2025/08/ClinicaDentalDharma.vcf  /clinica-dental-dharma.vcf  301
+/shared-files/349/*                                  /clinica-dental-dharma.vcf  301

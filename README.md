@@ -37,6 +37,8 @@ css/estilos.css               todos los estilos
 img/                          imágenes, logos e iconos
 fonts/                        Crimson Text y Poppins (licencia OFL)
 404.html, sitemap.xml, robots.txt
+_redirects, _headers           configuración de Cloudflare Pages
+clinica-dental-dharma.vcf     tarjeta de contacto (la que había en WordPress)
 ```
 
 ## Enlaces entre páginas
@@ -55,8 +57,9 @@ La carpeta va en la raíz, al lado de `dentosofia/`. Si la metes en otra subcarp
 
 Busca `EDITAR` en el archivo: cada comentario dice qué cambiar.
 
-- `<title>`, `description`, `og:title` y `og:description`: título y resumen para Google.
+- `<title>`, `description`, `og:title`, `og:description`, `twitter:title` y `twitter:description`: título (unos 60 caracteres) y resumen (unos 150) para Google y para cuando se comparte el enlace.
 - `canonical` y `og:url`: cambia `NOMBRE-DE-LA-CARPETA` por el nombre de la carpeta.
+- `og:image` y `twitter:image`: la imagen que sale al compartir el enlace. Vale la general (`img/og-clinica-dental-dharma.jpg`); si preparas una propia, que mida 1200 × 630 px y sea JPG, y describe lo que se ve en `og:image:alt` y `twitter:image:alt`.
 - `robots`: cambia `noindex, nofollow` por `index, follow` cuando esté lista. Si no, Google no la mostrará.
 - Migas, `<h1>` y entradilla.
 - Imagen principal.
@@ -71,7 +74,7 @@ En `tratamientos/index.html`, dentro de `<div class="tarjetas">`, copia una tarj
 ```html
 <a class="tarjeta" href="../bruxismo-y-estres/index.html">
   <img src="../img/bruxismo.webp" width="960" height="640" alt="" loading="lazy">
-  <span class="tarjeta__texto"><h2>Bruxismo y estrés</h2><p>Una frase corta que explique qué es.</p><span class="tarjeta__mas">Ver tratamiento →</span></span>
+  <div class="tarjeta__texto"><h2>Bruxismo y estrés</h2><p>Una frase corta que explique qué es.</p><span class="tarjeta__mas">Ver tratamiento →</span></div>
 </a>
 ```
 
@@ -122,6 +125,25 @@ Estos datos están repetidos en todas las páginas. En VS Code, usa *Buscar en a
 | Móvil / WhatsApp | `617 87 86 81`, `+34617878681` y `34617878681` | texto, `tel:` y `wa.me` |
 
 El horario también está en los datos para Google del `index.html` de la raíz (`"opens": "09:00", "closes": "19:00"`): cámbialo allí a mano.
+
+## Imágenes para compartir (WhatsApp, Facebook, LinkedIn, X…)
+
+Cada página tiene en su `<head>` las etiquetas Open Graph (`og:`) y Twitter que usan WhatsApp y las redes para la vista previa del enlace: título, resumen e imagen. Las imágenes están en `img/og-*.jpg`, miden 1200 × 630 px y combinan el logotipo y el nombre del tratamiento con la foto de esa página (todas de Pexels o propias; la foto de portada de Freepik no se usa aquí porque exige atribución).
+
+Las previsualizaciones solo se pueden comprobar cuando la web esté publicada en el dominio: [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/), [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/) y enviando el enlace por WhatsApp o Telegram. Si cambias una imagen y la red sigue mostrando la antigua, pulsa «Volver a extraer» en el depurador de Facebook (WhatsApp usa la misma caché).
+
+## Publicar en Cloudflare Pages
+
+Es el alojamiento previsto. *Workers & Pages → Create → Pages → Connect to Git*, elige este repositorio, rama `main`, sin comando de compilación y con `/` como directorio de salida.
+
+Dos archivos solo los lee Cloudflare:
+
+- `_redirects`: redirecciones 301 de direcciones de WordPress que ya no existen (mapas del sitio de Yoast, la tarjeta de contacto `.vcf`). Las páginas conservan su dirección, así que no hacen falta más.
+- `_headers`: caché de fuentes e imágenes, cabeceras de seguridad básicas y `noindex` para la copia en `*.pages.dev` y la plantilla.
+
+En el panel de Cloudflare, al conectar el dominio: activa *Always Use HTTPS* y crea una regla de redirección 301 de `www.clinicadentaldharma.com/*` a `https://clinicadentaldharma.com/${1}` (esto no se puede hacer desde `_redirects`).
+
+Cloudflare sirve `/tratamientos/` aunque los enlaces internos apunten a `tratamientos/index.html`: redirige solo a la dirección limpia.
 
 ## Publicar en GitHub Pages
 

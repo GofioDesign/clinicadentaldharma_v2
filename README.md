@@ -133,3 +133,7 @@ python -m http.server 8000
 ```
 
 y abre <http://localhost:8000>.
+
+## Créditos de imágenes
+
+- **Foto de portada** (`img/portada-*.webp`): «Retrato monocromático de una mujer que muestra vulnerabilidad y auto-aceptación», de Freepik - Magnific.com ([ficha](https://www.magnific.com/es/imagen-ia-gratis/retrato-monocromatico-mujer-que-muestra-vulnerabilidad-auto-aceptacion_138698250.htm)). Licencia gratuita **con atribución**: el enlace «designed by Freepik - Magnific.com» del pie de la portada es obligatorio mientras se use esta imagen. Si cambias la foto, puedes quitarlo.

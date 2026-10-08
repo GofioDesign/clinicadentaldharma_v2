@@ -39,6 +39,10 @@ fonts/                        Crimson Text y Poppins (licencia OFL)
 404.html, sitemap.xml, robots.txt
 ```
 
+## Enlaces entre páginas
+
+Los enlaces internos apuntan siempre al archivo (`../tratamientos/index.html`, `../index.html#equipo`), no a la carpeta. Así la web funciona igual en el dominio, en GitHub Pages y abriendo los archivos desde el disco con doble clic. Las direcciones públicas siguen siendo las limpias (`/tratamientos/`) en `canonical` y en `sitemap.xml`.
+
 ## Añadir una página nueva
 
 ### 1. Copia la plantilla
@@ -65,13 +69,13 @@ Busca `EDITAR` en el archivo: cada comentario dice qué cambiar.
 En `tratamientos/index.html`, dentro de `<div class="tarjetas">`, copia una tarjeta entera (desde `<a class="tarjeta"` hasta su `</a>`) y pégala donde quieras que aparezca. Cambia el enlace, la imagen, el título y el texto:
 
 ```html
-<a class="tarjeta" href="../bruxismo-y-estres/">
+<a class="tarjeta" href="../bruxismo-y-estres/index.html">
   <img src="../img/bruxismo.webp" width="960" height="640" alt="" loading="lazy">
   <span class="tarjeta__texto"><h2>Bruxismo y estrés</h2><p>Una frase corta que explique qué es.</p><span class="tarjeta__mas">Ver tratamiento →</span></span>
 </a>
 ```
 
-Si también la quieres en la portada, haz lo mismo en el `index.html` de la raíz, con estas diferencias: el enlace sin `../` (`href="bruxismo-y-estres/"`), la imagen sin `../` (`src="img/bruxismo.webp"`) y el título con `<h3>` en vez de `<h2>`.
+Si también la quieres en la portada, haz lo mismo en el `index.html` de la raíz, con estas diferencias: el enlace sin `../` (`href="bruxismo-y-estres/index.html"`), la imagen sin `../` (`src="img/bruxismo.webp"`) y el título con `<h3>` en vez de `<h2>`.
 
 El menú de arriba no lista los tratamientos uno a uno (lleva a la página «Tratamientos»), así que **no hay que tocar las demás páginas**.
 
@@ -123,7 +127,7 @@ El horario también está en los datos para Google del `index.html` de la raíz 
 
 *Settings → Pages → Deploy from a branch → `main` / `(root)`*.
 
-Mientras se prueba, la web se ve en `https://gofio-design.github.io/clinicadentaldharma_v2/` (la página de error 404 solo se verá bien con el dominio propio).
+Mientras se prueba, la web se ve en `https://gofiodesign.github.io/clinicadentaldharma_v2/` (la página de error 404 solo se verá bien con el dominio propio).
 
 Para usar el dominio: en *Settings → Pages → Custom domain* escribe `clinicadentaldharma.com` (GitHub crea el archivo `CNAME`) y apunta el DNS del dominio a GitHub Pages. Marca *Enforce HTTPS* cuando esté disponible.
 

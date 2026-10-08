@@ -105,6 +105,8 @@ ul{padding-left:1.2em}
 .tarjeta:hover{box-shadow:0 12px 30px rgba(45,42,36,.12);transform:translateY(-3px);color:var(--tinta)}
 .tarjeta img{width:100%;aspect-ratio:3/2;object-fit:cover}
 img[src*="dentosofia-"]{object-position:50% 15%}
+img[src*="tratamientos-"]{object-position:50% 40%}
+img[src*="rehabilitacion-holistica-"]{object-position:80% 50%}
 .tarjeta__texto{padding:1.2rem 1.3rem 1.4rem;display:flex;flex-direction:column;flex:1}
 .tarjeta h3{font-size:1.35rem;margin-bottom:.35em}
 .tarjeta p{font-size:.93rem;color:var(--gris);margin-bottom:1em}

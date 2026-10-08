@@ -32,6 +32,7 @@ dentosofia/index.html …       una carpeta por tratamiento
 _plantilla-articulo/          plantilla para páginas nuevas (no se indexa)
 js/cita.js                    a dónde llevan los botones de cita (una sola línea)
 politica-de-privacidad/       política de privacidad (falta añadir el NIF)
+creditos-de-imagenes/         autores y procedencia de las fotos (enlazada en el pie)
 css/estilos.css               todos los estilos
 img/                          imágenes, logos e iconos
 fonts/                        Crimson Text y Poppins (licencia OFL)
@@ -136,4 +137,7 @@ y abre <http://localhost:8000>.
 
 ## Créditos de imágenes
 
+La página `creditos-de-imagenes/` (enlazada en el pie de todas las páginas) lista cada foto con su autor y su enlace. Si cambias una foto, actualiza su línea allí: copia un `<li>` de la lista y cambia la imagen, el autor y el enlace.
+
+- Las fotos de Pexels no exigen atribución; se citan por cortesía.
 - **Foto de portada** (`img/portada-*.webp`): «Retrato monocromático de una mujer que muestra vulnerabilidad y auto-aceptación», de Freepik - Magnific.com ([ficha](https://www.magnific.com/es/imagen-ia-gratis/retrato-monocromatico-mujer-que-muestra-vulnerabilidad-auto-aceptacion_138698250.htm)). Licencia gratuita **con atribución**: el enlace «designed by Freepik - Magnific.com» del pie de la portada es obligatorio mientras se use esta imagen. Si cambias la foto, puedes quitarlo.

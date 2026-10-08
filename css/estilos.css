@@ -151,6 +151,9 @@ ul{padding-left:1.2em}
 .texto ul{margin:0 0 1.2em}
 .texto li{margin-bottom:.4em}
 .texto img{border-radius:var(--radio);margin:1.5rem 0}
+.texto .creditos{list-style:none;padding:0}
+.creditos li{display:flex;gap:1rem;align-items:center;margin-bottom:1rem}
+.texto .creditos img{width:96px;height:72px;object-fit:cover;margin:0;flex:none}
 .lateral{position:sticky;top:100px;background:var(--crema);border-radius:var(--radio);padding:1.6rem;border:1px solid var(--linea)}
 .lateral h2{font-size:1.5rem}
 .lateral .boton{width:100%}
